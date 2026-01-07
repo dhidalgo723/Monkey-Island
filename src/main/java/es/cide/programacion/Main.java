@@ -1,0 +1,111 @@
+//Nombre --> Daniel Hidalgo
+//DNI --> 13412280Z
+//21 de noviembre de 2025
+
+package es.cide.programacion;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Random ra = new Random();
+
+        // creacion de variables
+        boolean vivoh = true; // si el heroe sigue vivo
+        boolean correcta = true; // si es correcta la pregunta
+        int vidap = ra.nextInt(3) + 1; // vida del pirata
+        int vidachuck = vidap * 2;
+        int vidah = 10; // vida del heroe
+        int rondas = 0; // rondas (lo toma como el numero de piratas que genera la isla)
+        String nomp = ""; // el pirata elegido
+        String chuck = "LeChuck";
+        String nomh = ""; // el nombre del heroe
+
+        Heroi h = null; // variable del heroe
+        Pirata pelegido = null; // variable del pirata elegido
+        Illa i = new Illa(); // clase isla ERROR SKLAFFA`JKOSDAODWDWJKLDAWDAWDID
+        pelegido = i.vullUnPirata(ra.nextInt(rondas)); // la inicializamos para evitar errores
+
+        rondas = i.getNumpirata(); // obtenemos el numero de piratas
+
+        int elec_personaje;
+        System.out.println("Elige tu personaje:");
+        System.out.println("1: Guybrush Threepwood");
+        System.out.println("2: Elaine Marley");
+        elec_personaje = sc.nextInt(); // la eleccion del personaje
+        if (elec_personaje == 1) {
+            nomh = "Guybrush Threepwood";
+            h = new Guybrush(nomh, 10, true);
+        } else if (elec_personaje == 2) {
+            nomh = "Elaine Marley";
+            h = new Elaine(nomh, 10, true);
+        }
+
+        // imprime el nombre de la isla
+        System.out.println("Has llegado a la isla: " + i.getNomisla());
+        System.out.println();
+
+        while (vivoh && rondas > 0) { // mientrasel heroe siga vivo y haya piratas
+            pelegido = i.vullUnPirata(ra.nextInt(rondas)); // obtenemos un pirata
+            nomp = pelegido.getNomPirata(); // lo convertimos en string para la clase pirata
+            Pirata p = new Pirata(nomp, vidap, true); // creamos la clase piratanormal
+            while (vidap > 0 && vivoh) { // mientras el heroe siga vivo y la vida del pirata no sea 0
+                System.out.println(nomp + " te dice: ");
+                p.insultar(); // ataque
+                System.out.println(nomh + " responde: ");
+                h.defensar(); // defensa del heroe
+                correcta = p.replica(h.getElec());
+                if (correcta) {
+                    System.out.println("Ugh... has ganado por los pelos de mi loro");
+                    vidap = p.getVida(); // resta uno de vida al pirata si la acierta el heroe
+                    System.out.println("La vida del pirata es de: " + vidap);
+                    System.out.println("¿Sigue vivo el pirata?: " + p.vida());
+                } else if (!correcta) {
+                    System.out.println("¿Pero tu le das de beber a los peces?");
+                    vidah = h.getVida(); // resta uno de vida al heroe si falla el heroe
+                    System.out.println("La vida del heroe es de: " + vidah);
+                    System.out.println("¿Sigue vivo el heroe?: " + h.vida());
+                }
+                if (vidah <= 0) { // si la vida del heroe es 0 (muere) sale del bucle
+                    System.out.println("Has muerto");
+                    vivoh = false;
+                }
+            }
+            rondas--; // resta uno al numero de piratas que aparecen en la isla (rondas)
+            if (rondas == rondas - 1) {
+                Pirata lc = new LeChuck(chuck, vidachuck, true); // creamos la clase piratanormal
+                while (vidap > 0 && vivoh) { // mientras el heroe siga vivo y la vida del pirata no sea 0
+                    System.out.println("\n" + chuck + " te dice: ");
+                    lc.insultar(); // ataque
+                    System.out.println("\n" + nomh + " responde: ");
+                    h.defensar(); // defensa del heroe
+                    correcta = lc.replica(h.getElec());
+                    if (correcta) {
+                        System.out.println("\nUgh... has ganado por los pelos de mi loro");
+                        vidap = lc.getVida(); // resta uno de vida al pirata si la acierta el heroe
+                        System.out.println("La vida del pirata es de: " + vidap);
+                        System.out.println("¿Sigue vivo el pirata?: " + lc.vida());
+                    } else if (!correcta) {
+                        System.out.println("\n¿Pero tu le das de beber a los peces?");
+                        vidah = h.getVida(); // resta uno de vida al heroe si falla el heroe
+                        System.out.println("La vida del heroe es de: " + vidah);
+                        System.out.println("¿Sigue vivo el heroe?: " + h.vida());
+                    }
+                    if (vidah <= 0) { // si la vida del heroe es 0 (muere) sale del bucle
+                        System.out.println("\n Has muerto");
+                        vivoh = false;
+                    }
+                }
+            }
+        }
+
+        if (vivoh) { // si sigue vivo el heroe gana
+            System.out.println("Has ganado el juego ¡Enhorabuena!");
+        } else if (!vivoh) { // si muere
+            System.out.println("Has dado mas pena que respuestas");
+        }
+        sc.close();
+    }
+}
