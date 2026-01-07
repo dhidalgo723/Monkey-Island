@@ -3,19 +3,20 @@ package es.cide.programacion;
 import java.util.Random;
 
 public class Guybrush extends Heroi implements Fight, Speak {
+
     Random ra = new Random();
     protected String nom;
     protected String[] respuestarandom = new String[4];
     protected int elec_array;
     protected int respuestaog, respuestaog1, respuestaog2, respuestaog3;
     protected String[] respuestas = { // respuestas para defenderse
-            "Primero deberías dejar de usarla como un plumero",
-            "Qué apropiado, tú peleas como una vaca",
-            "Sí que las hay, sólo que nunca las has aprendido",
-            "Ya te están fastidiando otra vez las almorranas, ¿Eh?",
-            "Aargh.. ¿Y después que? ¿Te la comerás?.",
-            "Me rendiría si eso me evitara tener que mirarte.",
-            "Ugh... por eso te rascas con tanta saña. Que te vea un veterinario."
+        "Primero deberías dejar de usarla como un plumero",
+        "Qué apropiado, tú peleas como una vaca",
+        "Sí que las hay, sólo que nunca las has aprendido",
+        "Ya te están fastidiando otra vez las almorranas, ¿Eh?",
+        "Aargh.. ¿Y después que? ¿Te la comerás?.",
+        "Me rendiría si eso me evitara tener que mirarte.",
+        "Ugh... por eso te rascas con tanta saña. Que te vea un veterinario."
     };
 
     public Guybrush(String nom, int vida, boolean vivo) {
@@ -29,7 +30,7 @@ public class Guybrush extends Heroi implements Fight, Speak {
         }
         respuestaog2 = ra.nextInt(7); // randomiza el lugar del array de las respuestas
         while (respuestaog1 == respuestaog2 || respuestaog == respuestaog2) { // mientras sean iguales sigue haciendo
-                                                                              // randoms
+            // randoms
             respuestaog2 = ra.nextInt(7);
         }
         respuestaog3 = ra.nextInt(7); // randomiza el lugar del array de las respuestas
@@ -54,7 +55,7 @@ public class Guybrush extends Heroi implements Fight, Speak {
     }
 
     @Override
-    public String getElec(){
+    public String getElec() {
         return respuestarandom[elec_array];
     }
 
@@ -86,6 +87,6 @@ public class Guybrush extends Heroi implements Fight, Speak {
 
     @Override
     public void sayGoodBye() {
-        System.out.println("¡Hasta la vista!");
+        System.out.println("¡Gracias por el botín tarado!");
     }
 }

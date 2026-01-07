@@ -3,6 +3,7 @@ package es.cide.programacion;
 import java.util.Random;
 
 public class LeChuck extends Pirata implements Fight, Speak {
+
     Random ra = new Random();
 
     protected String nom = "LeChuck";
@@ -18,13 +19,13 @@ public class LeChuck extends Pirata implements Fight, Speak {
     protected String ataque = "";
 
     private String[] insulto = { // los insultos del pirata
-            "Mi lengua es más hábil que cualquier espada",
-            "¡Ordeñaré hasta la última gota de sangre de tu cuerpo!",
-            "Ya no hay técnicas que te puedan salvar",
-            "¡Eres como un dolor en la parte baja de la espalda!",
-            "Aargh... Moleré tus nudillos hasta hacerlos pasta.",
-            "Ríndete ahora o te aplastaré como a un tomate.",
-            "He visto pulgas con brazos más grandes que los tuyos."
+        "Mi lengua es más hábil que cualquier espada",
+        "¡Ordeñaré hasta la última gota de sangre de tu cuerpo!",
+        "Ya no hay técnicas que te puedan salvar",
+        "¡Eres como un dolor en la parte baja de la espalda!",
+        "Aargh... Moleré tus nudillos hasta hacerlos pasta.",
+        "Ríndete ahora o te aplastaré como a un tomate.",
+        "He visto pulgas con brazos más grandes que los tuyos."
     };
 
     private String insultochuck = "¡Tu barco navega mejor sin ti!"; // el insultos de chuck
@@ -53,7 +54,7 @@ public class LeChuck extends Pirata implements Fight, Speak {
     public void insultar() {// metodo insultar
         int indiceinsultos = ra.nextInt(4); // elige aleatoriamente uno de los tres insultos guardados
         if (ataquerandomizado[indiceinsultos] == insulto[ataqueog]) { // esto es para que en replica podamos saber la
-                                                                      // posicion original del insulto
+            // posicion original del insulto
             posog = ataqueog;
         } else if (ataquerandomizado[indiceinsultos] == insulto[ataqueog1]) {
             posog = ataqueog1;
@@ -84,6 +85,10 @@ public class LeChuck extends Pirata implements Fight, Speak {
 
     public String getAtaque() {
         return ataque;
+    }
+
+    public boolean vida() {
+        return vivo;
     }
 
     @Override

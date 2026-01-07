@@ -8,14 +8,13 @@ public class Pirata extends Personatge implements Fight, Speak {
     protected String nomh;
     protected int vidah;
     protected String[] respuestas = { // respuestas para defenderse
-            "Primero deberías dejar de usarla como un plumero",
-            "Qué apropiado, tú peleas como una vaca",
-            "Sí que las hay, sólo que nunca las has aprendido",
-            "Ya te están fastidiando otra vez las almorranas, ¿Eh?",
-            "Aargh.. ¿Y después que? ¿Te la comerás?.",
-            "Me rendiría si eso me evitara tener que mirarte.",
-            "Ugh... por eso te rascas con tanta saña. Que te vea un veterinario.",
-    };
+        "Primero deberías dejar de usarla como un plumero",
+        "Qué apropiado, tú peleas como una vaca",
+        "Sí que las hay, sólo que nunca las has aprendido",
+        "Ya te están fastidiando otra vez las almorranas, ¿Eh?",
+        "Aargh.. ¿Y después que? ¿Te la comerás?.",
+        "Me rendiría si eso me evitara tener que mirarte.",
+        "Ugh... por eso te rascas con tanta saña. Que te vea un veterinario.",};
 
     protected String nom0; // nombre del pirata
     protected int vida; // vida del pirata
@@ -27,13 +26,13 @@ public class Pirata extends Personatge implements Fight, Speak {
     protected int posog; // la posicion original del insulto del pirata
 
     private String[] insulto = { // los insultos del pirata
-            "Mi lengua es más hábil que cualquier espada",
-            "¡Ordeñaré hasta la última gota de sangre de tu cuerpo!",
-            "Ya no hay técnicas que te puedan salvar",
-            "¡Eres como un dolor en la parte baja de la espalda!",
-            "Aargh... Moleré tus nudillos hasta hacerlos pasta.",
-            "Ríndete ahora o te aplastaré como a un tomate.",
-            "He visto pulgas con brazos más grandes que los tuyos."
+        "Mi lengua es más hábil que cualquier espada",
+        "¡Ordeñaré hasta la última gota de sangre de tu cuerpo!",
+        "Ya no hay técnicas que te puedan salvar",
+        "¡Eres como un dolor en la parte baja de la espalda!",
+        "Aargh... Moleré tus nudillos hasta hacerlos pasta.",
+        "Ríndete ahora o te aplastaré como a un tomate.",
+        "He visto pulgas con brazos más grandes que los tuyos."
     };
 
     public Pirata(String nom, int vida, boolean vivo) { // constructor de pirata
@@ -55,7 +54,7 @@ public class Pirata extends Personatge implements Fight, Speak {
     public void insultar() {// metodo insultar
         int indiceinsultos = ra.nextInt(3); // elige aleatoriamente uno de los tres insultos guardados
         if (ataquerandomizado[indiceinsultos] == insulto[ataqueog]) { // esto es para que en replica podamos saber la
-                                                                      // posicion original del insulto
+            // posicion original del insulto
             posog = ataqueog;
         } else if (ataquerandomizado[indiceinsultos] == insulto[ataqueog1]) {
             posog = ataqueog1;
@@ -71,9 +70,9 @@ public class Pirata extends Personatge implements Fight, Speak {
     }
 
     public String getNomPirata() { // devuelve el nombre del pirata
-        return this.nom0;
+        return this.nom;
     }
-    
+
     public int getVida() {
         this.vida = vida - 1;
         if (vida != 0) { // si es diferente a 0 esta vivo
@@ -94,7 +93,7 @@ public class Pirata extends Personatge implements Fight, Speak {
 
     @Override
     public void sayHello() {
-        System.out.println("¡Que miras mongolico!");
+        System.out.println("¡Que miras mequetrefe!");
     }
 
     @Override
