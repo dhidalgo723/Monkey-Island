@@ -2,7 +2,8 @@ package es.cide.programacion;
 
 import java.util.Scanner;
 
-abstract class Heroi extends Personatge {
+abstract class Heroi extends Personatge implements Fight, Speak {
+
     Scanner sc = new Scanner(System.in);
     protected String nom;
     protected int vida;
@@ -21,6 +22,10 @@ abstract class Heroi extends Personatge {
 
     protected int getVida() { // vida para el heroe
         return vida;
+    }
+
+    public void sayHello() {
+        System.out.println("¡Hola!");
     }
 
     @Override

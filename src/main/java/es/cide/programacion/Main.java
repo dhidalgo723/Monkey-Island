@@ -1,13 +1,13 @@
 //Nombre --> Daniel Hidalgo
 //DNI --> 13412280Z
-//21 de noviembre de 2025
-
+//7 de enero de 2026
 package es.cide.programacion;
 
 import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Random ra = new Random();
@@ -24,11 +24,10 @@ public class Main {
         String nomh = ""; // el nombre del heroe
 
         Heroi h = null; // variable del heroe
-        Pirata pelegido = null; // variable del pirata elegido
-        Illa i = new Illa(); // clase isla ERROR SKLAFFA`JKOSDAODWDWJKLDAWDAWDID
+        Pirata pelegido; // variable del pirata elegido
+        Illa i = new Illa(); // clase isla
+        rondas = i.getNumpirata(); // inicializamos rondas
         pelegido = i.vullUnPirata(ra.nextInt(rondas)); // la inicializamos para evitar errores
-
-        rondas = i.getNumpirata(); // obtenemos el numero de piratas
 
         int elec_personaje;
         System.out.println("Elige tu personaje:");
@@ -42,15 +41,16 @@ public class Main {
             nomh = "Elaine Marley";
             h = new Elaine(nomh, 10, true);
         }
+        h.sayHello(); // saludo del heroe
 
-        // imprime el nombre de la isla
-        System.out.println("Has llegado a la isla: " + i.getNomisla());
+        System.out.println("Has llegado a la isla: " + i.getNomisla()); // imprime el nombre de la isla
         System.out.println();
 
         while (vivoh && rondas > 0) { // mientrasel heroe siga vivo y haya piratas
             pelegido = i.vullUnPirata(ra.nextInt(rondas)); // obtenemos un pirata
             nomp = pelegido.getNomPirata(); // lo convertimos en string para la clase pirata
             Pirata p = new Pirata(nomp, vidap, true); // creamos la clase piratanormal
+            p.sayHello(); // saludo del pirata
             while (vidap > 0 && vivoh) { // mientras el heroe siga vivo y la vida del pirata no sea 0
                 System.out.println(nomp + " te dice: ");
                 p.insultar(); // ataque
@@ -72,10 +72,12 @@ public class Main {
                     System.out.println("Has muerto");
                     vivoh = false;
                 }
+                p.sayGoodBye(); // despedida del pirata
             }
             rondas--; // resta uno al numero de piratas que aparecen en la isla (rondas)
             if (rondas == rondas - 1) {
                 Pirata lc = new LeChuck(chuck, vidachuck, true); // creamos la clase piratanormal
+                lc.sayHello(); // saludo de chuck
                 while (vidap > 0 && vivoh) { // mientras el heroe siga vivo y la vida del pirata no sea 0
                     System.out.println("\n" + chuck + " te dice: ");
                     lc.insultar(); // ataque
@@ -98,6 +100,7 @@ public class Main {
                         vivoh = false;
                     }
                 }
+                lc.sayGoodBye(); // despedida de chuck
             }
         }
 

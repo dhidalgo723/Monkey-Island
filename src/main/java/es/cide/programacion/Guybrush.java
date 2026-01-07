@@ -49,6 +49,7 @@ public class Guybrush extends Heroi implements Fight, Speak {
             System.out.println(i + ". " + respuestarandom[i]);
         }
         eleccion = sc.nextInt(); // la eleccion
+        elec_array = eleccion;
         System.out.print("Has escogido: " + eleccion);
     }
 
