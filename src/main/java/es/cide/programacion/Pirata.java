@@ -37,6 +37,8 @@ public class Pirata extends Personatge implements Fight, Speak {
 
     public Pirata(String nom, int vida, boolean vivo) { // constructor de pirata
         super(nom, vida);
+        this.vida = vida;
+        this.vivo = vivo;
         ataqueog = ra.nextInt(7); // randomiza el primer ataque del pirata
         ataqueog1 = ra.nextInt(7);
         while (ataqueog == ataqueog1) {

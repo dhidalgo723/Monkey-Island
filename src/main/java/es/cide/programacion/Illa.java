@@ -20,10 +20,11 @@ public class Illa {
     protected Pirata[] pirataelegido;
 
     public Illa() {
+        int i; // variable para el bucle for
         numpirata = ra.nextInt(5) + 3; // genera un numero entre 3 y 7 piratas
         pirataelegido = new Pirata[numpirata]; // crea el array de piratas elegidos con un tamaño de lo numeros de
         // pirata escogidos
-        for (int i = 0; i < numpirata; i++) { // guarda los piratas en el array pirataelegido, usa como posicion la "i"
+        for (i = 0; i < numpirata; i++) { // guarda los piratas en el array pirataelegido, usa como posicion la "i"
             // para guardar en cada posicion del array, ademas creamos el objeto
             // "pirata" para que guarde un nombre de los piratas del array de los
             // piratas

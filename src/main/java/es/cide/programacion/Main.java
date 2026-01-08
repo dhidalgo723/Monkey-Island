@@ -48,7 +48,7 @@ public class Main {
             nomp = pelegido.getNomPirata(); // lo convertimos en string para la clase pirata
             Pirata p = new Pirata(nomp, vidap = ra.nextInt(3) + 1, true); // creamos la clase piratanormal
             p.sayHello(); // saludo del pirata
-            while (vidap >= 0 && vivoh) { // mientras el heroe siga vivo y la vida del pirata no sea 0
+            while (vidap > 0 && vivoh) { // mientras el heroe siga vivo y la vida del pirata no sea 0
                 System.out.println("\n" + nomp + " te dice: ");
                 p.insultar(); // ataque
                 System.out.println("\n" + nomh + " responde: ");

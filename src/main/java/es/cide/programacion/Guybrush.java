@@ -23,6 +23,7 @@ public class Guybrush extends Heroi implements Fight, Speak {
         super(nom, vida, vivo); // constructor heredado
         this.nom = nom;
         this.vida = vida;
+        this.vivo = vivo;
         respuestaog = ra.nextInt(7); // randomiza el lugar del array de las respuestas
         respuestaog1 = ra.nextInt(7);
         while (respuestaog == respuestaog1) { // mientras sean iguales sigue haciendo randoms

@@ -35,6 +35,8 @@ public class LeChuck extends Pirata implements Fight, Speak {
     public LeChuck(String nom, int vida, boolean vivo) {
         super(nom, vida, vivo);
         this.nom = nom;
+        this.vida = vida;
+        this.vivo = vivo;
         ataqueog = ra.nextInt(3); // randomiza el primer ataque del pirata
         ataqueog1 = ra.nextInt(3);
         while (ataqueog == ataqueog1) {
