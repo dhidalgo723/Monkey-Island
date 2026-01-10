@@ -4,6 +4,7 @@ import java.util.Random;
 
 public class Guybrush extends Heroi implements Fight, Speak {
 
+    // variables
     Random ra = new Random();
     protected String nom;
     protected String[] respuestarandom = new String[4];

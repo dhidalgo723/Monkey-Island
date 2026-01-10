@@ -19,17 +19,21 @@ public class Illa {
     protected int vidap; // vida del pirata
     protected Pirata[] pirataelegido;
 
+    // poner todos los getters y setters
     public Illa() {
         int i; // variable para el bucle for
         numpirata = ra.nextInt(5) + 3; // genera un numero entre 3 y 7 piratas
         pirataelegido = new Pirata[numpirata]; // crea el array de piratas elegidos con un tamaño de lo numeros de
         // pirata escogidos
-        for (i = 0; i < numpirata; i++) { // guarda los piratas en el array pirataelegido, usa como posicion la "i"
+
+        //intentar hacerlo de atras para delante
+        for (i = 0; i < numpirata - 1; i++) { // guarda los piratas en el array pirataelegido, usa como posicion la "i"
             // para guardar en cada posicion del array, ademas creamos el objeto
             // "pirata" para que guarde un nombre de los piratas del array de los
             // piratas
             pirataelegido[i] = new Pirata(nompirata[ra.nextInt(nompirata.length)], vidap, true); // los guarda ERROR
         }
+        pirataelegido[numpirata - 1] = new LeChuck("LeChuck", vidap * 2, true); // el ultimo pirata siempre es lechuck
     }
 
     public String getNomisla() { // para tener la isla

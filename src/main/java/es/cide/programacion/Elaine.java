@@ -4,6 +4,7 @@ import java.util.Random;
 
 public class Elaine extends Heroi implements Fight, Speak {
 
+    // variables
     Random ra = new Random();
     protected String nom;
     protected int elec_array;

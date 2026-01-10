@@ -37,6 +37,8 @@ public class LeChuck extends Pirata implements Fight, Speak {
         this.nom = nom;
         this.vida = vida;
         this.vivo = vivo;
+
+        // randomizador de ataques
         ataqueog = ra.nextInt(3); // randomiza el primer ataque del pirata
         ataqueog1 = ra.nextInt(3);
         while (ataqueog == ataqueog1) {
