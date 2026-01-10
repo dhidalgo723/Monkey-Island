@@ -13,7 +13,7 @@ public class Main {
         boolean vivoh = true; // si el heroe sigue vivo
         boolean correcta = true; // si es correcta la pregunta
         int vidap = 0; // vida del pirata
-        int vidachuck = vidap * 2;
+        int vidachuck = 0; // inicializamos la vida de lechuck
         int vidah = 10; // vida del heroe
         int rondas = 0; // rondas (lo toma como el numero de piratas que genera la isla)
         String nomp = ""; // el pirata elegido
@@ -43,12 +43,15 @@ public class Main {
         System.out.println("Has llegado a la isla: " + i.getNomisla() + "\n"); // imprime el nombre de la isla
 
         while (vivoh && rondas > 0) { // mientras el heroe siga vivo y haya piratas
-            pelegido = i.vullUnPirata(ra.nextInt(rondas)); // obtenemos un pirata
-            nomp = pelegido.getNomPirata(); // lo convertimos en string para la clase pirata
-            Pirata p = new Pirata(nomp, vidap = ra.nextInt(3) + 1, true); // creamos la clase piratanormal
-            while (nomp.equals(chuck) && j == rondas - 1) { // si es lechuck y es el ultimo pirata, creamos la clase lechuck
-                p = new Pirata(nomp, vidap = ra.nextInt(3) + 1, true);
+            if (rondas == 1) {
+                pelegido = i.vullUnPirata(i.getNumpirata() - 1);
+                nomp = pelegido.getNomPirata(); // lo convertimos en string para la clase pirata
+                vidachuck = vidap * 2; // la vida de lechuck es el doble que la del pirata normal
+            } else {
+                pelegido = i.vullUnPirata(ra.nextInt(i.getNumpirata() - 1)); // obtenemos un pirata
+                nomp = pelegido.getNomPirata(); // lo convertimos en string para la clase pirata
             }
+            Pirata p = new Pirata(nomp, vidap = ra.nextInt(3) + 1, true); // creamos la clase piratanormal
             p.sayHello(); // saludo del pirata
             while (vidap > 0 && vivoh) { // mientras el heroe siga vivo y la vida del pirata no sea 0
                 System.out.println("\n" + nomp + " te dice: ");
