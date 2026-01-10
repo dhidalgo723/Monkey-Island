@@ -42,11 +42,11 @@ public class Main {
 
         System.out.println("Has llegado a la isla: " + i.getNomisla() + "\n"); // imprime el nombre de la isla
 
-        while (vivoh && rondas > 0) { // mientrasel heroe siga vivo y haya piratas
+        while (vivoh && rondas > 0) { // mientras el heroe siga vivo y haya piratas
             pelegido = i.vullUnPirata(ra.nextInt(rondas)); // obtenemos un pirata
             nomp = pelegido.getNomPirata(); // lo convertimos en string para la clase pirata
             Pirata p = new Pirata(nomp, vidap = ra.nextInt(3) + 1, true); // creamos la clase piratanormal
-            while (nomp.equals(chuck) && rondas == 1) {
+            while (nomp.equals(chuck) && j == rondas - 1) { // si es lechuck y es el ultimo pirata, creamos la clase lechuck
                 p = new Pirata(nomp, vidap = ra.nextInt(3) + 1, true);
             }
             p.sayHello(); // saludo del pirata
@@ -71,7 +71,6 @@ public class Main {
                     System.out.println("Has muerto");
                     vivoh = false;
                 }
-                p.sayGoodBye(); // despedida del pirata
             }
             rondas--; // resta uno al numero de piratas que aparecen en la isla (rondas)
         }

@@ -91,4 +91,9 @@ public class Guybrush extends Heroi implements Fight, Speak {
     public void sayGoodBye() {
         System.out.println("¡Gracias por el botín tarado!");
     }
+
+    public String getNom() {
+        return nom;
+    }
+
 }
